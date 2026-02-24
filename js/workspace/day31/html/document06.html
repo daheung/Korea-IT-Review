@@ -1,0 +1,28 @@
+<!-- 6번 : DOM - querySelector() -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - querySelector()</title>
+</head>
+<body>
+  <!-- div.myDiv#myDiv_p>p{div 태그안의 p 태그입니다 $}*2 -->
+  <div class="myDiv" id="myDiv_p">
+    <p>div 태그안의 p 태그입니다 1</p>
+    <p>div 태그안의 p 태그입니다 2</p>
+  </div>
+  <div class="myDiv">
+    <span>div 태그안의 span 태그입니다</span>
+  </div>
+</body>
+<script>
+  const result1 = document.querySelector("#myDiv_p p");
+  console.log(result1, typeof result1);
+  console.log(result1.value); //undefined => 단일 객체에서는 value 쓰면 undefined로 출력됨
+  console.log(result1.innerHTML);
+  console.log(result1.innerText);
+  const result2 = document.querySelector(".myDiv span");
+  console.log(result2.innerHTML);
+</script>
+</html>

@@ -1,0 +1,165 @@
+day28(web 3일차)
+복습 -> box model -> display 속성 -> flex box -> 시맨틱 태그 -> position -> 고급 선택자 -> 드롭다운 메뉴 -> 개인 플젝
+
+0. 복습
+1) HTML(HyperText Markup Language)
+   웹 문서의 구조를 만드는 언어
+
+2) HTML 태그
+- 블록요소    : 한 줄 전체 차지, width 기본값 100%, 자동 줄바꿈
+   <div></div>, <hn></hn>, <ul><li></li></ul>, <ol><li></li></ol>
+   <table></table>, <hr>, <br>
+
+- 인라인요소 : 내용 크기만큼만 차지, 같은 줄 배치 가능, width, height 지정 x
+   <span></span>, <a></a>, <img>, <strong></strong>
+   <input>
+
+3) form 태그
+- input type 속성
+   text, password, number, tel, date, submit, reset, radio, checkbox, hidden
+
+- 속성
+   required, name, value, autofocus, readonly, checked, disabled
+
+4) CSS(Cascading Style Sheets)
+   HTML의 디자인 담당
+   
+- 인라인 스타일
+- 내부 스타일
+- 외부 스타일
+   
+5) 선택자(Selector)
+- id
+   페이지 내 유일
+   #id명 {} 
+- class
+   여러 요소 그룹화
+   .클래스명 {}
+
+1. Box Model
+   margin : 바깥여백
+   border : 테두리
+   padding : 안쪽 여백
+   content : 실제 내용
+
+1) 블록요소 / 인라인요소의 박스모델 차이
+         블록   인라인
+   width / height  가능   불가능
+   margin 상하   겹침   x
+   margin 좌우   적용   적용(겹치지않음)
+
+2) 속성
+   margin : 바깥여백 
+      4방향;
+      상하 좌우;
+      상 좌우 하;
+      상 우 하 좌;   시계방향 적용
+   border : 테두리
+      굴기 모양   색상;
+   padding : 안쪽여백
+      4방향;
+      상하 좌우;
+      상 좌우 하;
+      상 우 하 좌;   시계방향 적용      
+   contents : 컨텐츠(내용)
+      width : 너비;
+      height : 높이;
+      text-align : center | ..
+
++) CSS 우선순위 규칙
+   !important > 인라인스타일 > id 선택자 > 클래스선택자, 속성선택자 > 태그선택자 > 전역선택자
+   속성선택자    [attr=value], :hover 등
+
+2. flex box(Flexible Box Layout) ★★★★★
+1) 레이아웃을 만들 때 사용하는 속성
+   float
+      예전방식
+      주로 이미지 옆에 글 배치할 때 사용
+      레이아웃 구성시에는 불편함이 많음
+   display의 flex box
+      많이 사용하는 레이아웃 방식
+      1차원 레이아웃(가로 또는 세로)
+      정렬, 간격, 순서 제어가 쉬움
+   grid
+      2차원 레이아웃(행 + 열)
+      페이지 전체 구조에 적합
+      flex보다 구조가 큼
+
+2) flex box
+   레이아웃을 만드는 하나의 방식이다
+   복잡하지 않게 유연하게 요소들의 크기와 순서를 정하여 배치할 수 있다
+
+3) 구성요소
+   flex container   : 레이아웃을 적용하여 배치하려는 요소들을 감싸고 있는 부모요소
+         자식 요소들을 한 줄로 묶어 배치한다
+   flex item   : 실질적으로 배치하려는 요소이며 flex container의 자식요소
+         자식요소인 flex item은 여러개 만들 수 있다
+   주축(main axis)   : 자식 요소가 배치되는 방향
+         아이템이 나열되는 방향, 기본값은 가로 방향
+         주축 기준으로 정렬하는 속성 : justify-content
+   교차축(cross axis) : 주축을 가로지르는(수직인) 방향
+         row일 경우 -> 세로
+         column일 경우 -> 가로
+         교차축 기준으로 정렬하는 속성 : align-items
+   
+4) flex Container 만들기
+   컨테이너로 사용할 부모 요소에 display:flex 속성을 지정한다
+
+5) flex container 주요 속성
+   배치하려는 요소들의 전체 흐름, 정렬과 관련된 속성
+
+- display
+   display:flex         flex container를 지정하는 속성
+   flex-direction:row|column;   주축 방향을 지정하는 속성(기본값 : row)
+   justify-content: center | space-between | space-around;      
+      컨테이너 주축 기준의 아이템 정렬방식
+      center      중앙정렬
+            [    ■    ■   ■    ]
+      space-between   첫 아이템과 끝 아이템을 컨테이너 양쪽에 배치하고 나머지 아이템들은 동일한 간격 정렬
+            margin이 없으면 완전히 끝으로 붙는다(양끝 + 균등간격)
+            [■    ■   ■]
+      space-around    모든 아이템을 동일한 간격으로 정렬(모든요소 동일간격)
+            [   ■    ■    ■   ]
+      flex-start   시작점 정렬(기본값)
+            [■ ■ ■]
+   align-iems: center | stretch | flex-start | flex-end | baseline
+      교차축 기준의 아이템 정렬방식
+      center      중앙정렬
+      stretch      컨테이너 높이만큼 늘어남(기본값)
+      flex-start   위쪽정렬
+      flex-end   아래쪽정렬
+      baseline   텍스트 기준선 정렬
+   flex-wrap: nowrap | wrap | wrap-reverse;
+      아이템 줄바꿈 여부
+      nowrap   한줄에 모두 배치(기본값)
+      wrap   공간 부족시 자동줄바꿈
+      wrap-reverse   줄바꿈 방향 반대로
+
+3. display 속성의 기본 5가지
+1) display
+   HTML 요소를 화면에 어떻게 보여줄지 결정하는 CSS 속성
+
+2) display 속성
+- display:block
+   한 줄 전체 차지
+   자동 줄바꿈
+   width/height 지정 가능
+
+- display:inline
+   내용만큼만 차지
+   같은 줄 배치
+   width/height 지정 불가능
+
+- display:inline-block
+   lnline 처럼 한 줄 배치
+   block처럼 width/height 지정 가능
+   
+   
+- display:none
+   화면에서 완전히 제거
+   공간도 차지하지 않음
+
+- display:flex
+   요소를 flex container로 만듦
+   자식 요소가 flex item이 됨
+   레이아웃 배치 전용

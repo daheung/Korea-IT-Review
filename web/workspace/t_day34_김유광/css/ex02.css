@@ -1,0 +1,6 @@
+/* 완료된 항목은 줄 긋기
+삭제 버튼은 빨간색 */
+.done {
+  text-decoration: line-through;
+  color: gray;
+}

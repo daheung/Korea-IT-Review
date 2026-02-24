@@ -1,0 +1,25 @@
+<!-- 5번 : DOM - getElementsByName() -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - getElementsByName()</title>
+</head>
+<body>
+  <form action="">
+    <input type="text" name="이름" value="짱구">
+    <input type="text" name="이름">
+    <input type="text" name="id">
+    <input type="password" name="pw">
+  </form>
+</body>
+<script>
+  const result = document.getElementsByName("이름");
+  console.log(result, typeof result); //NodeList
+  console.log(result[0]); //태그
+  console.log(result[0].value); //입력되어있는 값만 출력(생성시점에서)
+  console.log(result[1]); //태그
+  console.log(result[1].value); //입력되어있는 값만 출력(생성시점에서)
+</script>
+</html>

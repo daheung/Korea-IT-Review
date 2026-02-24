@@ -1,0 +1,35 @@
+day25(dbms 7일차)
+jdbc
+
+1. 학생 관리 프로그램
+1) 프로젝트 구조
+src
+|- com.koreait
+   |- Main.java      //시작만
+   |- controller 
+   |   |- AttendanceController.java   //메뉴/흐름만
+   |- dao
+   |   |- DBConnector.java      //db와 연결
+   |   |- StudentDAO.java      //SQL/JDBC
+   |   |- AttendanceDAO.java      //SQL/JDBC
+   |- dto
+   |   |- StudentDTO.java      //데이터 묶음
+   |   |- AttendanceDTO.java      //데이터 묶음
+   |- view
+          |- AttendanceView.java      //입력/출력만
+
+2) 테이블
+TBL_STUDENT   -- 학생테이블
+   STU_NUMBER 학번 숫자   PK
+   STU_NAME  이름 문자   NOT NULL
+   STU_MAJOR 전공 문자 NOT NULL
+
+TBL_ATTENDANCE   -- 출석테이블
+   ATT_NUMBER 출석번호 숫자 PK
+   STU_NUMBER 학생번호 숫자 FK, NOT NULL
+   ATT_ADATE  출석날짜  날짜 NOT NULL
+   ATT_STATUS 출석상태 문자(20) NOT NULL
+
+시퀀스 생성
+   SEQ_STUDENT NOCACHE NOCYCLE
+   SEQ_ATTE NOCACHE NOCYCLE

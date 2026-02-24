@@ -1,0 +1,41 @@
+<!-- 9번 : DOM - name 속성을 이용한 선택 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - name 속성을 이용한 선택</title>
+</head>
+<body>
+  <h1>name 속성</h1>
+  <form action="" method="get">
+    <!-- div>input[type="text" name=""] -->
+    <div>
+      <input type="text" name="id" id="" placeholder="id를 입력하세요" value="abc">
+    </div>
+    <!-- div>input:text -->
+    <div>
+      <input type="text" name="name" id="" placeholder="이름을 입력하세요" value="홍길동">
+    </div>
+    <!-- div>input:password -->
+    <div>
+      <input type="password" name="pw" id="" placeholder="pw를 입력하세요" value="123">
+    </div>
+    <!-- div>(label>input:checkbox)*3 -->
+    <div>
+      <label><input type="checkbox" name="language" value="c">c언어</label>
+      <label><input type="checkbox" name="language" value="java">java</label>
+      <label><input type="checkbox" name="language" value="python">python</label>
+    </div>
+  </form>
+</body>
+<script>
+  console.log(document.getElementsByName("id")); //1개
+  console.log(document.getElementsByName("language")); //Nodelist 3개
+  console.log(document.getElementsByName("language")[0]);
+  console.log(document.getElementsByName("language")[0].value);
+  console.log(document.getElementsByName("language")[0].getAttribute("value"));
+  document.getElementsByName("language").forEach((checkbox) => checkbox.checked = true);
+
+</script>
+</html>

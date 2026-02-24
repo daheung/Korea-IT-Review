@@ -1,0 +1,105 @@
+day31(js 3일차)
+복습 -> DOM -> 이벤트 -> 라이트 박스 -> 팝업창과 모달창
+
+0. 복습
+1) 객체
+   원시타입을 제외한 모든 값은 객체
+   프로퍼티(key+value) + 메소드(값이 함수인 프로퍼티)
+
+   const user = {
+      name : "홍길동",
+      age : 20,
+      printInfo(){
+         console.log(`${name}님 환영합니다`);
+      }
+   };
+
+   객체 접근 방식
+   user.name
+   user['name']
+
+2) 배열 
+   객체타입
+   요소에는 원시값/객체 모두 가능
+   생성 : [], new Array()
+
+3) 배열 함수
+   map() : 변형해서 새로운 배열 생성
+   filter() : 조건에 맞는 것만 추출
+   reduce() : 하나의 값으로 누적
+
+4) 함수
+- 일반함수
+   function 함수명(매개변수){
+      코드작성
+      return 리턴값;
+   }
+
+- 익명함수
+   let 변수명 = function(매개변수){
+      코드작성
+      return 리턴값;   
+   }
+
+- 화살표 함수
+   () => {}
+
+- 콜백함수
+   함수의 매개변수로 전달되는 함수를 의미
+   모듈화를 시키기 위해 원하는 곳에서 실행할 때 사용한다(재사용성)
+
+- 즉시실행함수
+   한번만 사용하는 함수
+   (function (매개변수)){
+      실행할코드;
+   })(매개변수로 넘겨줄 값);
+
+- 재귀함수
+   자기자신을 호출하는 함수
+
+1. DOM ★★★★★★★★
+1) DOM(Document Object Model) 
+   html 태그들을 하나씩 객체화 한 것을 의미한다
+   html 페이지 내용과 모양을 제어하기 위해서 사용하는 객체이며 html 태그당 DOM 객체가 하나씩 생성된다
+   html 태그의 포함관계에 따라서 부모, 자식, 형제 관계로 구성된다
+   html 요소(<h1>, <div>, <input>)을 모두 노드(node)라는 객체로 구조화한다
+
+2) DOM API
+   DOM을 다루기 위한 프로그래밍 인터페이스(메소드, 속성 등)
+   브라우저가 제공하는 Javascript 객체/메소드 집합
+   ex) document.getElementById(), element.innerHTML 등
+
+2. DOM Tree 구조
+   문서 구조를 트리(Tree) 형태로 표현한 것
+   최상위 노드 : document
+   주요 노드 : 요소노드(Element Node) - HTML 태그
+      속성노드(Attribute Node) - 태그 속성
+      텍스트 노드(Text Node) - 텍스트 컨텐츠
+
+   
+   <body>
+     <div id="box">div box</div>
+   </body>
+
+   document      브라우저가 제공하는 최상위 객체
+   |_ html         요소노드
+       |_ body      요소노드
+      |_ div (id="box")   div 요소 노드, id="box" div 요소의 속성노드로 존재
+         |_ div box   div의 텍스트 노드
+
+   
+   <body>
+     <ul id="menu">
+       <li class="item">home</li>
+       <li class="item">about</li>
+     </ul>
+   </body>
+
+   document
+   |_ html
+      |_ body
+      |_ ul (id="menu")
+         |_ li (class="item")
+         |   |_ home 텍스트노드
+         |_ li (class="item")
+         |_ about 텍스트노드

@@ -1,0 +1,27 @@
+<!-- 3번 : DOM - getElementsByTagName() -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - getElementsByTagName()</title>
+</head>
+<body>
+  <h1>DOM 연습</h1>
+  <p>p태그는 paragrah의 약자입니다</p>
+  <div>div태그 1</div>
+  <div>div태그 2</div>
+  <div>div태그 3</div>
+  <div>div태그 4</div>
+  <div>div태그 5</div>
+  <div>div 태그 입니다</div>
+</body>
+<script>
+  const result = document.getElementsByTagName("div");
+  console.log(result, typeof result);
+  for(let i = 0; i < result.length; i++){
+    console.log(result[i]);
+  }
+  console.log(result[0]);
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!-- 4번 : 테이블 태그1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테이블태그1</title>
+</head>
+<body>
+  <h1>기본 테이블</h1>
+  <table border="1" cellspacing="0" cellpadding="5"> <!-- 테이블 만드는 태그 시작 -->
+    <!-- border : 테이블 테두리 표시, cellspacing : 셀 사이의 간격 없애기, cellpadding : 셀 내부의 여백 설정-->
+    <thead> <!-- 제목 영역(보통 th 태그를 포함)-->
+      <tr>  <!-- 행(row) : 가로 한 줄 -->
+        <th>번호</th> <!-- 제목 열 : 굵게/가운데정렬-->
+        <th>이름</th>
+        <th>이메일</th>
+      </tr>
+    </thead>
+    <tbody> <!-- 데이터 영역(보통 td 태그를 포함)-->
+      <tr>  <!-- 행(row) : 가로 한 줄-->
+        <td>1</td> <!-- 셀(cell) : 일반 데이터-->
+        <td>짱구</td>
+        <td>gu@test.com</td>
+      </tr>
+      <tr>  <!-- 행(row) : 가로 한 줄 -->
+        <td>2</td>  <!-- 셀(cell) : 일반 데이터-->
+        <td>철수</td>
+        <td>su@test.com</td>
+      </tr>
+    </tbody>
+
+  </table>
+</body>
+</html>

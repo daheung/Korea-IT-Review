@@ -1,0 +1,3 @@
+SELECT * FROM user_tab_privs_recd;
+
+COMMIT;

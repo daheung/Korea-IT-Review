@@ -1,0 +1,8 @@
+/* 12번 : DOM을 활용한 이벤트 처리 */
+
+.box {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin:20px;
+}

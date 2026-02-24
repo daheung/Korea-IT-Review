@@ -1,0 +1,51 @@
+<!-- 8번 : DOM - 클래스 이름을 이용한 선택 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - 클래스 이름을 이용한 선택</title>
+  <style>
+    /* .odd{
+      color:red;
+    }
+    .even{
+      color:blue;
+    } */
+  </style>
+</head>
+<body>
+  <H1>클래스 이름으로 선택</H1>
+  <div>
+    <ul>
+      <li class="item">1번째 아이템</li>
+      <li class="item">2번째 아이템</li>
+      <li class="item">3번째 아이템</li>
+      <li class="item">4번째 아이템</li>
+      <li class="item">5번째 아이템</li>
+    </ul>
+  </div>
+</body>
+<script>
+  const items = document.querySelectorAll(".item");
+  console.log(items);  
+
+  items.forEach((item, index) => {
+    // console.log(item, index);
+    if((index + 1) % 2 === 0){
+      item.classList.add("even");
+    }else{
+      item.classList.add("odd");
+    }
+  });
+
+  const colors = {even : "blue", odd:"red"};
+  console.log(colors);
+
+  items.forEach((item) => {
+    const className = item.classList.contains('even') ? 'even':'odd';
+    // console.log(className);
+    item.style.color = colors[className];
+  })
+</script>
+</html>
