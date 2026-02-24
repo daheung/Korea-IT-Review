@@ -50,3 +50,5 @@ Thumbs.db
 ############################
 java/resource/
 dbms/resource/
+
+**/**.exe
